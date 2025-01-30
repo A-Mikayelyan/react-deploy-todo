@@ -1,10 +1,10 @@
 import React from 'react';
-import ToDoList2 from './ToDoList2'; // Correct import
+import ToDoList from './views/ToDoList'; // Correct import
 
 function App() {
   return (
     <div>
-      <ToDoList2 /> {/* Correct component name */}
+      <ToDoList /> {/* Correct component name */}
     </div>
   );
 }

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import "./index.css";
-
-function ToDoList2() {
+import '../index.css';
+import TopBar from './Components/TopBar'
+import ToDo from "./Components/ToDo";
+function ToDoList() {
     const [tasks, setTasks] = useState([]);
     const [newTask, setNewTask] = useState("");
 
@@ -56,46 +57,23 @@ function ToDoList2() {
 
     return (
         <div className="to-do-list">
-            <h1>To-Do List</h1>
-            <div>
-                <input
-                    type="text"
-                    placeholder="Enter a task..."
-                    value={newTask}
-                    onChange={(e) => setNewTask(e.target.value)}
-                />
-                <button className="add-button" onClick={addTask}>
-                    Add
-                </button>
-            </div>
 
-            <ol>
-                {tasks.map((task, index) => (
-                    <li key={task.id || index}>
-                        <span className="text">{task.todo}</span>
-                        <button
-                            className="delete-button"
-                            onClick={() => deleteTask(index)}
-                        >
-                            Delete
-                        </button>
-                        <button
-                            className="move-button"
-                            onClick={() => moveTaskUp(index)}
-                        >
-                            👆
-                        </button>
-                        <button
-                            className="move-button"
-                            onClick={() => moveTaskDown(index)}
-                        >
-                            👇
-                        </button>
-                    </li>
-                ))}
-            </ol>
+        <TopBar newTask={newTask} setNewTask={setNewTask} addTask={addTask} />
+        <ToDo 
+        tasks={tasks} 
+        deleteTask={deleteTask} 
+        moveTaskUp={moveTaskUp} 
+        moveTaskDown={moveTaskDown} 
+    />
+
+                    
+            
+
+        
+
+           
         </div>
     );
 }
 
-export default ToDoList2;
+export default ToDoList;
